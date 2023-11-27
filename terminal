@@ -1,0 +1,58 @@
+ginnyke@Ginnys-MacBook-Pro ExtraCredit_Lab3Ke % g++ eecs348_eclab3.cpp -o main.out   
+eecs348_eclab3.cpp:58:34: warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
+    void withdraw(double amount) override {
+                                 ^
+eecs348_eclab3.cpp:75:33: warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
+    void displayDetails() const override {
+                                ^
+eecs348_eclab3.cpp:92:34: warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
+    void withdraw(double amount) override {
+                                 ^
+eecs348_eclab3.cpp:105:33: warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
+    void displayDetails() const override {
+                                ^
+4 warnings generated.
+ginnyke@Ginnys-MacBook-Pro ExtraCredit_Lab3Ke % ./main.out
+Account Details for Savings Account (ID: S123):
+   Type: Savings Account
+   Holder: Mark Ke
+   Balance: $100000.00
+   Interest Rate: 2.00%
+
+Account Details for Current Account (ID: C456):
+   Type: Current Account
+   Holder: Ginny Ke
+   Balance: $500000.00
+   Overdraft Limit: $500.00
+
+
+Account Details After Deposit and Withdrawal: 
+Withdrawn $1000.00 from Current Account.
+Account Details for Savings Account (ID: S123):
+   Type: Savings Account
+   Holder: Mark Ke
+   Balance: $100500.00
+   Interest Rate: 2.00%
+
+Account Details for Current Account (ID: C456):
+   Type: Current Account
+   Holder: Ginny Ke
+   Balance: $499000.00
+   Overdraft Limit: $500.00
+
+Withdrawn $300.00 from Savings Account.
+Withdrawn $300.00 from Current Account.
+
+Account Details after Transfer: 
+Account Details for Savings Account (ID: S123):
+   Type: Savings Account
+   Holder: Mark Ke
+   Balance: $100200.00
+   Interest Rate: 2.00%
+
+Account Details for Current Account (ID: C456):
+   Type: Current Account
+   Holder: Ginny Ke
+   Balance: $498700.00
+   Overdraft Limit: $500.00
+
