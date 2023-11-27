@@ -2,19 +2,19 @@
 #include <iomanip>
 #include <string>
 
-class Account {
-protected:
+class Account { //class account with protected attributes account number and account holder. 
+protected: //allows for the members to be called within other classes 
     std::string accountNumber;
     std::string accountHolder;
     double balance;
 
-public:
+public: //public attributes associated with the account class
     Account(const std::string& accNumber, const std::string& accHold, double accBalance)
         : accountNumber(accNumber), accountHolder(accHold), balance(accBalance) {}
 
     virtual void displayDetails() const {
         std::cout << "Account Details for Account (ID: " << accountNumber << "):" << std::endl;
-        std::cout << "   Type: Account" << std::endl; // Default type is Account
+        std::cout << "   Type: Account" << std::endl; 
         std::cout << "   Holder: " << accountHolder << std::endl;
         std::cout << "   Balance: $" << std::fixed << std::setprecision(2) << balance << std::endl;
     }
@@ -36,7 +36,7 @@ public:
         }
     }
 
-    friend Account& operator+(Account& sender, double amount) {
+    friend Account& operator+(Account& sender, double amount) { //uses the operator method per the instructions
         sender.withdraw(amount);
         return sender;
     }
@@ -47,11 +47,11 @@ public:
     }
 };
 
-class SavingsAccount : public Account {
+class SavingsAccount : public Account { // savings account class with private interest rate attribute
 private:
     double interestRate;
 
-public:
+public: // public attributes of the savings acocunt class
     SavingsAccount(const std::string& number, const std::string& holder, double initialBalance, double rate)
         : Account(number, holder, initialBalance), interestRate(rate) {}
 
@@ -81,11 +81,11 @@ public:
     }
 };
 
-class CurrentAccount : public Account {
+class CurrentAccount : public Account { // current account class that has private member of oversdraft
 private:
     double overdraftLimit;
 
-public:
+public: // public attributes of the current account class
     CurrentAccount(const std::string& number, const std::string& holder, double initialBalance, double limit)
         : Account(number, holder, initialBalance), overdraftLimit(limit) {}
 
@@ -111,7 +111,7 @@ public:
     }
 };
 
-int main() {
+int main() { //main that interacts with the classes, calls and outpouts all needed information .
     SavingsAccount savings("S123", "Mark Ke", 100000, 0.02);
     CurrentAccount current("C456", "Ginny Ke", 500000, 500);
 
@@ -127,7 +127,7 @@ int main() {
     std::cout << savings << std::endl;
     std::cout << current << std::endl;
 
-    // Transfer 300 from savings to current
+
     savings + 300;
     current + 300;
 
